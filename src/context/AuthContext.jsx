@@ -33,10 +33,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await api.post('/auth/login', { email, password, role })
 
+
       // Store user and token
-      localStorage.setItem('token', response.token)
-      localStorage.setItem('user', JSON.stringify(response.user))
-      setUser(response.user)
+      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('user', JSON.stringify(response.data.user))
+      setUser(response.data.user)
 
       toast.success('Login successful!')
       return { success: true }
