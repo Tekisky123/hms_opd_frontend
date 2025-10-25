@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import api from '../utils/api'
 
 const AuthContext = createContext()
 
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password, role) => {
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await api.post('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
