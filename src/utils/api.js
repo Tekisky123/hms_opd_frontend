@@ -3,7 +3,6 @@ import toast from 'react-hot-toast'
 
 const api = axios.create({
   // baseURL: import.meta.env.VITE_API_BASE_URL || '/api' 
-  
   baseURL:"https://hms-opd-backend-v1.vercel.app/api",
   headers: {
     'Content-Type': 'application/json',
